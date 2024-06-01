@@ -6,14 +6,10 @@ fun main() {
     var numberOfUntreatedCrimes = 0
 
     for (currentEvent in listOfEvents) {
-        if (currentEvent != -1) {
-            numberOfPoliceOfficers += currentEvent
-        }
-        else if (numberOfPoliceOfficers != 0) {
-            numberOfPoliceOfficers -= 1
-        }
-        else {
-            numberOfUntreatedCrimes += 1
+        when {
+            currentEvent != -1 -> numberOfPoliceOfficers += currentEvent
+            numberOfPoliceOfficers != 0 -> numberOfPoliceOfficers -= 1
+            else -> numberOfUntreatedCrimes += 1
         }
     }
 
